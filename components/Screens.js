@@ -16,7 +16,7 @@ import { Header } from "./header";
 import { useDispatch, useSelector } from "react-redux";
 import { getProfile, logout } from "../store/user/userAction";
 import ButtonUI from "./ButtonUI";
-import messaging from "@react-native-firebase/messaging";
+// import messaging from "@react-native-firebase/messaging";
 import Toast from "react-native-toast-message";
 import { getThreads } from "../store/thread/threadAction";
 
@@ -48,26 +48,26 @@ export default function Screens({ fcmToken }) {
     }
     prepare();
     // assume a message-notification contains a "type" property in the data payload of the screen to open
-    messaging().onNotificationOpenedApp((remoteMessage) => {
-      console.log(
-        "Notification caused app to open from background state:",
-        remoteMessage.notification
-      );
-      dispatch(getThreads());
-    });
-    const unsubscribe = messaging().onMessage(async (remoteMessage) => {
-      console.log("Message handled in the foreground!", remoteMessage);
-      if (remoteMessage.notification.title !== "OTP") {
-        Toast.show({
-          type: "info",
-          text1: remoteMessage.notification.title,
-          text2: remoteMessage.notification.body,
-        });
-        dispatch(getThreads());
-      }
-    });
+    // messaging().onNotificationOpenedApp((remoteMessage) => {
+    //   console.log(
+    //     "Notification caused app to open from background state:",
+    //     remoteMessage.notification
+    //   );
+    //   dispatch(getThreads());
+    // });
+    // const unsubscribe = messaging().onMessage(async (remoteMessage) => {
+    //   console.log("Message handled in the foreground!", remoteMessage);
+    //   if (remoteMessage.notification.title !== "OTP") {
+    //     Toast.show({
+    //       type: "info",
+    //       text1: remoteMessage.notification.title,
+    //       text2: remoteMessage.notification.body,
+    //     });
+    //     dispatch(getThreads());
+    //   }
+    // });
 
-    return unsubscribe;
+    // return unsubscribe;
   }, []);
 
   const onLayoutRootView = useCallback(async () => {
