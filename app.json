@@ -1,9 +1,9 @@
 {
   "expo": {
-    "name": "MyWellAlertApp",
+    "name": "Well Alert",
     "slug": "MyWellAlertApp",
     "version": "1.0.0",
-    "orientation": "portrait",
+    "orientation": "default",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
     "newArchEnabled": true,
@@ -20,10 +20,19 @@
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
       },
-      "edgeToEdgeEnabled": true
+      "edgeToEdgeEnabled": true,
+      "package": "com.pytronix.MyWellAlertApp"
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "extra": {
+      "eas": {
+        "projectId": "5c5341ca-6ecf-4e16-aabd-64ed2280212b"
+      }
+    },
+    "plugins": [
+      "expo-build-properties"
+    ]
   }
 }
